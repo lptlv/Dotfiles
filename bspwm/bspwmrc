@@ -2,9 +2,9 @@
 
 #AUTOSTART
 
-sxhkd -c /home/lptlv/.config/sxhkd/sxhkdrc &
-feh --bg-scale /home/lptlv/Pictures/Wallpapers/forest.png
-/home/lptlv/.config/polybar/launch.sh &
+sxhkd -c $HOME/.config/sxhkd/sxhkdrc &
+feh --bg-scale $HOME/Pictures/Wallpapers/forest.png
+$HOME/.config/polybar/launch.sh &
 
 #picom
 picom -b &
