@@ -137,8 +137,8 @@ XF86AudioMute
 
 # screenshots
 Print
-	scrot 'screenshot_%Y%m%d_%H%M%S.png' -e 'mv $f /home/lptlv/Pictures/Screenshots && xclip -selection clipboard -t image/png -i ~/screenshots/`ls -1 -t ~/screenshots | head -1`'
+	scrot 'screenshot_%Y%m%d_%H%M%S.png' -e 'mv $f $HOME/Pictures/Screenshots && xclip -selection clipboard -t image/png -i ~/screenshots/`ls -1 -t ~/screenshots | head -1`'
 
 # .conf files
 super + shift + Return
-	vim /home/lptlv/.config/sxhkd/sxhkdrc
+	vim $HOME/.config/sxhkd/sxhkdrc
