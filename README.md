@@ -1,4 +1,6 @@
 # Dependencies
 alacritty terminal \
 polybar \
-picom
+picom \
+ranger \
+uberzug
