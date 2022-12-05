@@ -1,4 +1,4 @@
 # Dependencies
-alacritty terminal
-polybar
-picom
+alacritty terminal \
+polybar \
+picom \
