@@ -1,0 +1,53 @@
+* {
+  font-family: "IosevkaSlab";
+  font-size: 16px;
+}
+
+#window {
+  margin: 1px;
+  border: 1px solid #82aaff;
+  border-radius: 0px;
+}
+
+#input {
+  margin: 5px;
+  border-radius: 0px;
+  border: 0px solid #1a1b26;
+  border-bottom: none;
+  background-color: #1a1b26;
+  color: #c8d3f5;
+  font-size: 20px;
+}
+
+#inner-box {
+  margin: 5px;
+  background-color: #222436;
+}
+
+#outer-box {
+  margin: 3px;
+  padding: 20px;
+  background-color: #222436;
+  border-radius: 0px;
+}
+
+#text {
+  margin: 5px;
+  color: #c8d3f5;
+}
+
+#entry:selected {
+  background-color: #82aaff;
+  border-radius: 0px;
+  border: 0px solid #82aaff;
+  margin:0px;
+}
+
+#text:selected {
+  color: #1a1b26;
+}
+
+#scroll {
+  margin: 0px;
+  border: none;
+}
