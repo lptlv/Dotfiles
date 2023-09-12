@@ -1,6 +1,6 @@
 # Info
 
-This repository was made as a personal backup for my workflow and contains all the keybinds and terminal shortcuts i am used to. Some files might or might not have stuff that you have to modify in order to reflect your workspace. Make sure to have Wayland dependencies installed before logging into the graphical environment. Use at your own risk. I will not fix any personal issues if something does not work.
+This repository was made as a personal backup for my workflow and contains all the keybinds and terminal shortcuts I am used to. Some files might or might not have stuff that you have to modify in order to reflect your workspace. Use at your own risk. I will not fix any personal issues if something does not work.
 
 # Fonts
 
