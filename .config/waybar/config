@@ -1,0 +1,262 @@
+{
+    "layer": "top", // Waybar at top layer
+
+    // "position": "bottom", // Waybar position (top|bottom|left|right)
+
+    "height": 50, // Waybar height (to be removed for auto height)
+
+    "margin": "10 7 5 7",
+
+    // "width": 1280, // Waybar width
+
+    // "gtk-layer-shell": "false",
+
+    // Choose the order of the modules
+    "modules-left": ["sway/workspaces", "sway/window", "custom/scratchpad", "sway/mode"],
+    "modules-center": ["clock"],
+    "modules-right": ["tray", "pulseaudio", "battery"],
+
+
+    "sway/mode": {
+        "format": "   {}"
+    },
+
+
+    "sway/workspaces": {
+        "all-outputs": true,
+        "disable-scroll": false,
+        "format": " {icon} ",
+        "format-icons": {
+          // "urgent": "",
+          // "focused": "",
+          // "default": ""
+	     "1": "󰫥",
+	     "2": "󰫥",
+	     "3": "󰫥",
+	     "4": "󰫥",
+	     "5": "󰫥",
+	     "6": "󰫥",
+	     "7": "󰫥",
+	     "8": "󰫥",
+	     "9": "󰫥",
+	     "urgent": "",
+	     "focused": "󰫢",
+	     "default": ""
+	}
+
+	//"persistant_workspaces": {
+        //     "1": [],
+	//     "2": [],
+	//     "3": [],
+	//     "4": []
+        //}
+    },
+
+    "wlr/taskbar": {
+	"format": "{icon}",
+	"icon-size": 14,
+	"icon-theme": "Breeze-Dark",
+	"on-click": "activate",
+	"on-click-right": "close",
+	"app_ids-mapping": {
+		"Firefox": "firefox"
+	},
+	"rewrite": {
+		"Firefox Web Browser": "Firefox"
+	}
+    },
+
+
+    "sway/window": {
+        "max-length": 80,
+        "tooltip": false,
+	"icon": false
+    },
+
+
+    "custom/layout": {
+        "tooltip": false,
+        "exec": "swaymsg -mrt subscribe '[\"input\"]' | jq -r --unbuffered \"select(.change == \\\"xkb_layout\\\") | .input | select(.type == \\\"keyboard\\\") | .xkb_active_layout_name | .[0:2]\""
+    },
+
+
+    "custom/zypper": {
+        "format": " {}",
+        "interval": 3600,
+        "exec": "zypper lu | grep 'v |' | wc -l; echo 'packages to update'",
+        "exec-if": "exit 0",
+        "on-click": "exec alacritty -e sudo sh -c 'zypper ref; zypper dup; sudo flatpak update -y; pkill -SIGRTMIN+8 waybar'",
+        "signal": 8
+    },
+
+
+    "idle_inhibitor": {
+        "format": "{icon}",
+        "format-icons": {
+            "activated": "",
+            "deactivated": ""
+        } 
+    },
+
+
+    "tray": {
+        "spacing": 10,
+	"tooltip": false
+    },
+
+
+    "clock": {
+        "format": "  {:%b %d, %R} ",
+        "tooltip-format": "<tt><small>{calendar}</small></tt>",
+        "today-format": "<span color='#8d3f5'><b><u>{}</u></b></span>",
+        "interval": 10,
+	"calendar": {
+                    "mode"          : "month",
+                    "mode-mon-col"  : 3,
+                    "on-scroll"     : 1,
+                    "on-click-right": "mode",
+                    "format": {
+                              "months":     "<span color='#ffead3'><b>{}</b></span>",
+                              "days":       "<span color='#ecc6d9'><b>{}</b></span>",
+                              "weekdays":   "<span color='#ffcc66'><b>{}</b></span>",
+                              "today":      "<span color='#ff6699'><b><u>{}</u></b></span>"
+                              }
+                    },
+		    
+        "actions":  {
+                    "on-click-right": "mode",
+                    "on-click-forward": "tz_up",
+                    "on-click-backward": "tz_down",
+                    "on-scroll-up": "shift_up",
+                    "on-scroll-down": "shift_down"
+                    }
+    },
+
+    "disk": {
+	"interval": 60,
+	"format": "󰋊 {free}",
+	"on-click": "exec dolphin"
+    },
+
+
+    "cpu": {
+        "format": " {usage}%",
+        "tooltip": false,
+	"on-click": "exec alacritty -e sh -c 'btop'",
+	"on-click-right": "exec plasma-systemmonitor --page-name History"
+    },
+
+
+    "memory": {
+        "format": "󰍛 {}%",
+	"on-click": "exec alacritty -e sh -c 'btop'",
+        "on-click-right": "exec plasma-systemmonitor --page-name Processes"
+    },
+
+
+    "temperature": {
+        // "thermal-zone": 2,
+        // "hwmon-path": "/sys/class/hwmon/hwmon2/temp1_input",
+        "critical-threshold": 80,
+        // "format-critical": "{icon} {temperatureC}°C",
+        "format": "{icon} {temperatureC}°C",
+        "format-icons": ["", "", ""],
+	"on-click": "exec alacritty -e sh -c 'btop'",
+        "on-click-right": "exec plasma-systemmonitor"
+    },
+
+
+    "backlight": {
+        // "device": "acpi_video1",
+        "format": "{icon}",
+        "format-icons": ["󱩏", "󱩑", "󱩓", "󱩕", "󰛨"],
+	"tooltip-format": "{percent}%"
+    },
+
+
+    "battery": {
+        "states": {
+            // "good": 95,
+            "warning": 30,
+            "critical": 15
+        },
+        "format-charging": "{icon}",
+        "format-plugged": "",
+        "format": "{icon}",
+        "format-icons": ["", "", "", "", ""],
+	"tooltip-format": "{timeTo} {capacity}%"
+    },
+
+
+    "battery#bat2": {
+        "bat": "BAT2"
+    },
+
+
+    "network": {
+        // "interface": "wlp2*", // (Optional) To force the use of this interface
+        "format-wifi": "",
+        "format-ethernet": "",
+        "format-linked": "",
+        "format-disconnected": "⚠",
+        "format-alt": "{ifname} {essid} ({signalStrength}%)",
+	"tooltip-format": "{essid} via {gwaddr}"
+    },
+
+    "pulseaudio": {
+        "format": "{icon}",
+        "format-muted": "",
+        "format-icons": {
+            "headphones": "",
+            "handsfree": "",
+            "headset": "",
+            "phone": "",
+            "portable": "",
+            "car": "",
+            "default": ["", "", ""]
+        },
+        "scroll-step": 10,
+        "on-click": "pactl set-sink-mute @DEFAULT_SINK@ toggle",
+        "on-click-right": "pavucontrol",
+        "tooltip-format": "{volume}%"
+    },
+
+
+    "custom/scratchpad": {
+        "format-text": "{}",
+        "return-type": "json",
+        "interval": 3,
+        "exec": "/usr/share/openSUSEway/helpers/scratchpad-indicator.sh 2> /dev/null",
+        "exec-if": "exit 0",
+        "on-click": "swaymsg 'scratchpad show'",
+        "on-click-right": "swaymsg 'move scratchpad'"
+    },
+
+
+    "custom/notification": {
+	"tooltip": true,
+	"format": "{icon}",
+	"format-icons": {
+	     "notification": "<span foreground='#ffc777'><small><sup>⬤</sup></small></span>",
+	     "none": "",
+	     "dnd-notification": "<span foreground='#ffc777'><small><sup>⬤</sup></small></span>",
+	     "dnd-none": " "
+	},
+
+	"return-type": "json",
+        "exec-if": "which swaync-client",
+        "exec": "swaync-client -swb",
+        "on-click": "swaync-client -t -sw",
+        "on-click-right": "swaync-client -d -sw",
+        "escape": true
+    },
+
+
+    "custom/home": {
+	"format": "",
+	"on-click": "wofi --allow-images",
+	"tooltip": false
+        },
+
+   
+}

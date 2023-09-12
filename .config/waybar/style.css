@@ -1,0 +1,89 @@
+* {
+    border:        none;
+    border-radius: 0;
+    font-family:   "Iosevka";
+    font-size:     15px;
+    box-shadow:    none;
+    text-shadow:   none;
+    transition-duration: 0s;
+    padding: 3px;
+}
+
+window#waybar {
+    color: #c8d3f5;
+    background-color: #222436;
+}
+
+window#waybar.solo {
+    color: #c8d3f5;
+    background-color: #222436;
+}
+
+window#waybar.empty #window {  
+    background:none;  
+}  
+
+#workspaces {
+    margin: 0 5px;
+}
+
+#custom-scratchpad {
+    margin: 0px	5px;
+    padding: 0px 5px;
+}
+
+#workspaces button {
+    color: #c8d3f5;
+    background-color: #2c2f45;
+}
+
+#workspaces button.focused {
+    color: #c8d3f5;
+}
+
+#workspaces button.visible {
+    color: #c8d3f5;
+}
+
+#workspaces button.urgent {
+    color: #ffc777;
+}
+
+#custom-home {
+    background-color: #2c2f45;
+    padding: 0 6px;
+    margin: 3px 5px 3px 5px;
+}
+
+#tray,
+#custom-zypper,
+#network,
+#disk,
+#clock,
+#memory,
+#backlight {
+    padding: 0 3px;
+    margin: 0px 3px 0px 3px;
+}
+    
+#battery,
+#pulseaudio,
+#custom-notification {
+    margin: 4px 0px 4px 0px;
+    color: #c8d3f5;
+    padding: 0 6.5px;
+    background-color: #2c2f45;
+}
+
+#battery.warning {
+   color: #ffc777;
+}
+
+#battery.critical {
+    color: #ff757f;
+}
+
+#battery.charging {
+    color: #c3e88d;
+}
+
