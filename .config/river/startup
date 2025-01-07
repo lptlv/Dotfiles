@@ -1,0 +1,17 @@
+#!/bin/zsh
+
+riverctl spawn "sh ~/.config/river/scripts/statusbar"
+riverctl spawn "sh ~/.config/river/scripts/wallpaper"
+
+# Services
+riverctl spawn "sudo tlp start"
+riverctl spawn "libinput-gestures-setup restart"
+riverctl spawn "sh ~/.config/river/scripts/clipboard"
+riverctl spawn "sh ~/.config/river/scripts/notifications"
+riverctl spawn "sh ~/.config/river/scripts/sunset"
+riverctl spawn "sh ~/.config/river/scripts/battery/battery.sh"
+riverctl spawn "sh ~/.config/river/scripts/sleep.sh"
+
+# Applications
+# riverctl spawn "killall floorp; flatpak run one.ablaze.floorp"
+# riverctl spawn "killall krusader; krusader"

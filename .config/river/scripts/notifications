@@ -1,0 +1,4 @@
+#!/bin/zsh
+
+killall swaync
+swaync & disown

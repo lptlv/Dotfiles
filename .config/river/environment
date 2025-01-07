@@ -1,0 +1,29 @@
+#!/bin/zsh
+
+# DBus
+riverctl spawn "dbus-update-activation-environment SEATD_SOCK DISPLAY WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=river"
+riverctl spawn "systemctl --user import-environment WAYLAND_DISPLAY XDG_CURRENT_DESKTOP"
+
+# Polkit & xdg
+riverctl spawn "/usr/libexec/polkit-gnome-authentication-agent-1"
+
+# GSettings
+riverctl spawn "gsettings set org.gnome.desktop.default-applications.terminal 'alacritty'"
+riverctl spawn "gsettings set org.gnome.desktop.interface gtk-theme 'Adwaita-dark'"
+riverctl spawn "gsettings set org.gnome.desktop.interface icon-theme 'Papirus-Dark'"
+riverctl spawn "gsettings set org.gnome.desktop.interface cursor-theme 'macOS BigSur-White'"
+
+# Screen & Audio
+riverctl spawn "exec /usr/libexec/xdg-desktop-portal-wlr -r"
+riverctl spawn "exec /usr/libexec/xdg-desktop-portal-gtk -r"
+riverctl spawn "exec /usr/libexec/xdg-desktop-portal -r"
+
+riverctl spawn "exec pipewire"
+riverctl spawn "exec pipewire-media-session"
+riverctl spawn "exec pipewire-pulse"
+
+# Env
+riverctl spawn "export XCURSOR_SIZE=24"
+riverctl spawn "export QT_QTA_PLATFORMTHEME=qt5ct"
+riverctl spawn "export SDL_VIDEODRIVER='wayland;x11'"
+riverctl spawn "export QT_QPA_PLATFORM='wayland;xcb'"
