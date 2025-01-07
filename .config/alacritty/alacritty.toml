@@ -1,0 +1,64 @@
+[[colors.indexed_colors]]
+color = "0xff966c"
+index = 16
+
+[[colors.indexed_colors]]
+color = "0xc53b53"
+index = 17
+
+[colors.bright]
+black = "0x444a73"
+blue = "0x82aaff"
+cyan = "0x86e1fc"
+green = "0xc3e88d"
+magenta = "0xc099ff"
+red = "0xff757f"
+white = "0xc8d3f5"
+yellow = "0xffc777"
+
+[colors.normal]
+black = "0x1b1d2b"
+blue = "0x7fbbb3"
+cyan = "0x83c092"
+green = "0xa7c080"
+magenta = "0xd699b6"
+red = "0xe67e80"
+white = "0xd3c6aa"
+yellow = "0xdbbc7f"
+
+[colors.primary]
+background = "0x272e33"
+foreground = "0xd3c6aa"
+
+[scrolling]
+history = 2000
+
+[cursor]
+style = "Underline"
+
+[font]
+size = 13.0
+
+[font.bold]
+family = "IosevkaSlab"
+style = "Bold"
+
+[font.bold_italic]
+family = "IosevkaSlab"
+style = "Bold Italic"
+
+[font.italic]
+family = "IosevkaSlab"
+style = "Italic"
+
+[font.normal]
+family = "IosevkaSlab"
+style = "Regular"
+
+[window.padding]
+x = 7
+y = 7
+
+[window]
+opacity = 0.96
+blur = true
