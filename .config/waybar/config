@@ -1,0 +1,239 @@
+{
+    "layer": "top",
+
+    // "position": "bottom",
+
+    "height": 35,
+//             ^ > v <
+    "margin": "7 7 2 7",
+
+    // "width": 1280,
+
+    "modules-left": ["river/tags"],
+    "modules-center": ["clock"],
+    "modules-right": ["tray", "mpris", "pulseaudio", "battery"],
+
+    "river/window": {
+        "format": "{}"
+    },
+
+    "river/tags": {
+        "tag-labels": ["Ⅰ", "Ⅱ", "Ⅲ", "Ⅳ", "Ⅴ", "Ⅵ", "Ⅶ", "Ⅷ"],
+        "num-tags": 8,
+        "set-tags": [
+            2147483649,
+            2147483650,
+            2147483652,
+            2147483656,
+            2147483664,
+            2147483680,
+            2147483712,
+            2147483776
+        ]
+    },
+
+
+    "hyprland/submap": {
+        "format": "{}"
+    },
+
+
+    "hyprland/workspaces": {
+    	"all-outputs": false,
+        "disable-scroll": false,
+        "on-scroll-up": "hyprctl dispatch workspace e+1",
+        "on-scroll-down": "hyprctl dispatch workspace e-1",
+        "format": " {icon} ",
+        "format-icons": {
+	     "1": "",
+	     "2": "",
+	     "3": "󰙅",
+	     "4": "󰈹",
+	     "5": "󱃶",
+	     "6": "",
+	     "7": "󰊴",
+       "8": "󰋋",
+	     "format-urgent":  "{icon}",
+	     "format-focused": "{icon}",
+       "default": ""
+      },
+
+        "persistent-workspaces": {
+	    "*": 8
+         },
+       "sort-by-number": true
+    },
+
+
+    "sway/window": {
+        "max-length": 80,
+        "tooltip": false,
+	"icon": false
+    },
+
+
+    "idle_inhibitor": {
+    	"format": "{icon}",
+	"format-icons": {
+	    "activated": "",
+	    "deactivated": ""
+	}
+    },
+
+
+    "custom/zypper": {
+        "format": " {} ",
+        "interval": 3600,
+	"tooltip": false,
+        "exec": "zypper lu | grep 'v |' | wc -l",
+        "exec-if": "exit 0",
+        "on-click": "exec alacritty -e sudo sh -c 'zypper ref; zypper dup; sudo flatpak update -y; pkill -SIGRTMIN+8 waybar'",
+        "signal": 8
+    },
+
+
+    "tray": {
+        "spacing": 10,
+	"tooltip": false
+    },
+
+
+    "mpris": {
+    	"interval": 1,
+    	"format": "{dynamic}  󰒮  {player_icon}  󰒭",
+	"format-paused": "{dynamic}  󰒮  {status_icon}  󰒭",
+	"player-icons": {
+		"default": "󰏤",
+		"mpv": "🎵"
+	},
+	"status-icons": {
+		"paused": "󰐊"
+	},
+    },
+
+
+    "clock": {
+        "format": "{:%b %d, %R}",
+        "tooltip-format": "<tt><small>{calendar}</small></tt>",
+        "today-format": "<span color='#8d3f5'><b><u>{}</u></b></span>",
+        "interval": 10,
+	"calendar": {
+                    "mode"          : "month",
+                    "mode-mon-col"  : 3,
+                    "on-scroll"     : 1,
+                    "on-click-right": "mode",
+                    "format": {
+                              "months":     "<span color='#ffead3'><b>{}</b></span>",
+                              "days":       "<span color='#ecc6d9'><b>{}</b></span>",
+                              "weekdays":   "<span color='#ffcc66'><b>{}</b></span>",
+                              "today":      "<span color='#ff6699'><b><u>{}</u></b></span>"
+                              }
+                    },
+		    
+        "actions":  {
+                    "on-click-right": "mode",
+                    "on-click-forward": "tz_up",
+                    "on-click-backward": "tz_down",
+                    "on-scroll-up": "shift_up",
+                    "on-scroll-down": "shift_down"
+                    }
+    },
+
+    "disk": {
+	"interval": 60,
+	"format": "󰋊 {free}",
+	"on-click": "exec dolphin"
+    },
+
+
+    "cpu": {
+        "format": " {usage}%",
+        "tooltip": false,
+	"on-click": "exec alacritty -e sh -c 'btop'",
+	"on-click-right": "exec plasma-systemmonitor --page-name History"
+    },
+
+
+    "memory": {
+        "format": "󰍛 {}%",
+	"on-click": "exec alacritty -e sh -c 'btop'",
+        "on-click-right": "exec plasma-systemmonitor --page-name Processes"
+    },
+
+
+    "temperature": {
+        "critical-threshold": 80,
+        "format": "{icon} {temperatureC}°C",
+        "format-icons": ["", "", ""],
+	"on-click": "exec alacritty -e sh -c 'btop'",
+        "on-click-right": "exec plasma-systemmonitor"
+    },
+
+
+    "backlight": {
+        "format": "{icon}",
+        "format-icons": ["󱩏", "󱩑", "󱩓", "󱩕", "󰛨"],
+	"tooltip-format": "{percent}%"
+    },
+
+
+    "battery": {
+        "on-click": "exec alacritty -e sh -c 'btop'",
+        "states": {
+            "warning": 30,
+            "critical": 15
+        },
+        "format-charging": "{icon}",
+        "format-plugged": "",
+        "format": "{icon}",
+        "format-icons": ["", "", "", "", ""],
+	"tooltip-format": "{timeTo} {capacity}%"
+    },
+
+
+    "network": {
+        "format-wifi": "",
+        "format-disconnected": "⚠",
+	"tooltip-format": "{essid} via {gwaddr}"
+    },
+
+    "pulseaudio": {
+        "format": "{icon}",
+        "format-muted": "󰝟",
+        "format-icons": {
+            "default": ["󰕿", "󰖀", "󰕾"]
+        },
+        "scroll-step": 10,
+        "on-click": "pactl set-sink-mute @DEFAULT_SINK@ toggle",
+        "on-click-right": "pavucontrol",
+        "tooltip-format": "{volume}%"
+    },
+
+
+    "custom/notification": {
+	"tooltip": true,
+	"format": "{icon}",
+	"format-icons": {
+	     "notification": "<span foreground='#ffc777'><small><sup>⬤</sup></small></span>",
+	     "none": "",
+	     "dnd-notification": "<span foreground='#ffc777'><small><sup>⬤</sup></small></span>",
+	     "dnd-none": " "
+	},
+
+	"return-type": "json",
+        "exec-if": "which swaync-client",
+        "exec": "swaync-client -swb",
+        "on-click": "swaync-client -t -sw",
+        "on-click-right": "swaync-client -d -sw",
+        "escape": true
+    },
+
+
+    "custom/home": {
+	"format": "",
+	"on-click": "wofi --allow-images",
+	"tooltip": false
+        },
+
+   
+}

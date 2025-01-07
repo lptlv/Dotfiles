@@ -1,0 +1,82 @@
+* {
+    border:        none;
+    border-radius: 0;
+    font-family:   "Iosevka";
+    font-size:     15px;
+    box-shadow:    none;
+    text-shadow:   none;
+    transition-duration: 0s;
+    padding-left: 3px;
+    padding-right: 2px;
+    opacity: 0.96;
+    min-height: 0;
+}
+
+window#waybar {
+    color: #d3c6aa;
+    background-color: #272e33;
+    border-bottom: 4px solid #1e2326;
+}
+
+window#waybar.solo {
+    color: #d3c6aa;
+    background-color: #272e33;
+}
+
+window#waybar.empty #window {
+    background:none;
+}
+
+#clock {
+    font-size: 15px;
+}
+
+#tags {
+    margin: 3px 1px 3px 3px;
+/*   border-bottom: solid 2px #2c2f45; */
+    border-radius: 5px;
+    border-top: solid 2px #272e33;
+    padding: 0 0px;
+}
+
+#tags button.occupied {
+    color:#a7c080;
+}
+
+#tags button {
+    color: #495156;
+    margin: 0px 0px 0px 4px;
+}
+
+#tags button.focused {
+    color: #d699b6;
+    /*border-bottom: 1px solid #d699b6;*/
+}
+
+#tags button.urgent {
+    color: #dbbc7f;
+}
+    
+#battery {
+    font-size:15px;
+}
+
+#pulseaudio {
+    margin: 4px 0px 2px 0px;
+    color: #d3c6aa;
+    padding: 0 6.5px;
+    font-size:15px;
+}
+
+#battery.warning {
+   color: #e69875;
+}
+
+#battery.critical {
+    color: #e67e80;
+}
+
+#battery.charging {
+    color: #83c092;
+}
+
