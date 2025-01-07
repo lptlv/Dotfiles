@@ -1,0 +1,9 @@
+#!/bin/zsh
+
+case "$(printf "󰍃 logout\n󰑓 reboot\n󰐥 poweroff\n󰽥 sleep\n" | wofi --dmenu -Dhide_search=true -i -H 200 -W 250 -x 0 -y 350 )" in
+	'logout') swaymsg exit;;
+	'sleep') swaylock -f -F -e -i ~/.config/sway/wall -k -l -s fill --font IBM Plex Mono && systemctl suspend ;;
+	'reboot') reboot ;;
+	'shutdown') poweroff ;;
+	*) exit 1 ;;
+esac
