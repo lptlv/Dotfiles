@@ -1,4 +1,0 @@
-#!/bin/zsh
-
-killall swaybg
-swaybg -m fill -i /home/lptlv/Pictures/Wallpapers/street.png
