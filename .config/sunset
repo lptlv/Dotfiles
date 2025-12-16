@@ -1,5 +1,0 @@
-#!/bin/zsh
-
-killall -q wlsunset
-while pgrep -x wlsunset >/dev/null; do sleep 1; done
-exec wlsunset -l 45.26 -L 8.44
