@@ -1,6 +1,6 @@
 #!/bin/zsh
 
-case "$(printf "River - init\nRiver - startup\nRiver - env\nRiver - rules\nWaybar - bar\nWaybar - look\n" | wofi --dmenu -i -H 270 -W 250 -x 0 -y 350 )" in
+case "$(printf "River - init\nRiver - startup\nRiver - env\nRiver - rules\nWaybar - bar\nWaybar - look\n" | wofi --dmenu -i -H 200 -W 250 -x 0 -y 350 )" in
      'River - init') alacritty -e vim /home/lptlv/.config/river/init;;
      'River - startup') alacritty -e vim /home/lptlv/.config/river/startup;;
      'River - env') alacritty -e vim /home/lptlv/.config/river/environment;;

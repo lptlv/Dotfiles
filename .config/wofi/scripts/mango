@@ -1,0 +1,11 @@
+#!/bin/zsh
+
+case "$(printf "Main\nAutostart\nPeripherics\nRules\nLayouts\nAppearance\n" | wofi --dmenu -i -j -H 235 -W 250 -x 0 -y 350 )" in
+     'Main') alacritty -e vim ~/.config/mango/config.conf;;
+     'Autostart') alacritty -e vim ~/.config/mango/autostart.conf;;
+     'Peripherics') alacritty -e vim ~/.config/mango/peripherics.conf;;
+     'Rules') alacritty -e vim ~/.config/mango/rules.conf;;
+     'Layouts') alacritty -e vim ~/.config/mango/layouts.conf;;
+     'Appearance') alacritty -e vim ~/.config/mango/appearance.conf;;
+     *) exit 1;;
+esac
