@@ -1,5 +1,4 @@
 #!/bin/sh
-cp -r .floorp ~
 cp -r .config/* ~/.config/
 cp -r .icons ~
 mv .zshrc ~
