@@ -1,4 +1,6 @@
 #!/bin/sh
+mkdir ~/Pictures/Screenshots
+mv Wallpapers ~/Pictures/
 cp -r .config/* ~/.config/
 cp -r .icons ~
 mv .zshrc ~
